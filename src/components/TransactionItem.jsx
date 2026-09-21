@@ -28,10 +28,18 @@ function TransactionItem({ transaction, deleteTransaction }) {
         </strong>
 
         <button
-          onClick={() => deleteTransaction(transaction.id)}
-          className="rounded-lg bg-gray-100 px-3 py-2 text-sm hover:bg-gray-200"
+            onClick={() => {
+             const confirmed = window.confirm(
+             "Are you sure you want to delete this transaction?"
+        );
+
+        if (confirmed) {
+      deleteTransaction(transaction.id);
+    }
+  }}
+    className="rounded-lg bg-red-500 px-4 py-2 text-sm font-medium text-white transition hover:bg-red-600"
         >
-          Delete
+    Delete
         </button>
 
       </div>
