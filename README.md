@@ -17,7 +17,7 @@ Users can add transactions, view their balance, filter transactions by category,
 - Display total number of transactions
 - Delete transactions
 - Filter transactions by category
-- Sort transactions by newest or oldest
+- - Sort transactions by newest, oldest, highest amount, or lowest amount
 - Save transactions using localStorage
 - Data remains available after refreshing the page
 - Responsive design using Tailwind CSS
