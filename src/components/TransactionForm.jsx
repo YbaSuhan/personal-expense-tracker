@@ -1,7 +1,6 @@
 import { useState } from "react";
 
 function TransactionForm({ addTransaction }) {
-
   const [type, setType] = useState("expense");
   const [amount, setAmount] = useState("");
   const [category, setCategory] = useState("Food");
@@ -10,21 +9,19 @@ function TransactionForm({ addTransaction }) {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (!amount || !description) {
-      return;
-    }
-
     const newTransaction = {
-    id: Date.now(),
-    type,
-    amount,
-    category,
-    description,
-    date: new Date().toLocaleDateString(),
-    createdAt: Date.now()
+      id: Date.now(),
+      type,
+      amount,
+      category,
+      description,
+      date: new Date().toLocaleDateString(),
+      createdAt: Date.now()
     };
 
     addTransaction(newTransaction);
+
+    alert("Transaction added successfully!");
 
     setAmount("");
     setDescription("");
@@ -32,16 +29,11 @@ function TransactionForm({ addTransaction }) {
 
   return (
     <section className="mb-8 rounded-xl bg-white p-6 shadow-sm">
-
       <h2 className="mb-5 text-xl font-bold">
         Add Transaction
       </h2>
 
-      <form
-        onSubmit={handleSubmit}
-        className="grid gap-4"
-      >
-
+      <form onSubmit={handleSubmit} className="grid gap-4">
         <div>
           <label className="mb-1 block text-sm font-medium">
             Type
@@ -64,6 +56,8 @@ function TransactionForm({ addTransaction }) {
 
           <input
             type="number"
+            min="1"
+            required
             placeholder="Enter amount"
             value={amount}
             onChange={(e) => setAmount(e.target.value)}
@@ -98,6 +92,7 @@ function TransactionForm({ addTransaction }) {
 
           <input
             type="text"
+            required
             placeholder="Enter description"
             value={description}
             onChange={(e) => setDescription(e.target.value)}
@@ -111,9 +106,7 @@ function TransactionForm({ addTransaction }) {
         >
           Add Transaction
         </button>
-
       </form>
-
     </section>
   );
 }

@@ -8,21 +8,37 @@ function TransactionList({
   const [categoryFilter, setCategoryFilter] = useState("All");
   const [sortOrder, setSortOrder] = useState("newest");
 
-  const filteredTransactions = transactions
-    .filter((transaction) => {
+  const filteredTransactions = transactions.filter(
+    (transaction) => {
       if (categoryFilter === "All") {
         return true;
       }
 
       return transaction.category === categoryFilter;
-    })
-    .sort((a, b) => {
+    }
+  );
+
+  const sortedTransactions = [...filteredTransactions].sort(
+    (a, b) => {
       if (sortOrder === "newest") {
         return b.createdAt - a.createdAt;
       }
 
-      return a.createdAt - b.createdAt;
-    });
+      if (sortOrder === "oldest") {
+        return a.createdAt - b.createdAt;
+      }
+
+      if (sortOrder === "highest") {
+        return Number(b.amount) - Number(a.amount);
+      }
+
+      if (sortOrder === "lowest") {
+        return Number(a.amount) - Number(b.amount);
+      }
+
+      return 0;
+    }
+  );
 
   return (
     <section className="rounded-xl bg-white p-6 shadow-sm">
@@ -41,7 +57,9 @@ function TransactionList({
             <option value="Food">Food</option>
             <option value="Transport">Transport</option>
             <option value="Shopping">Shopping</option>
-            <option value="Entertainment">Entertainment</option>
+            <option value="Entertainment">
+              Entertainment
+            </option>
             <option value="Bills">Bills</option>
             <option value="Salary">Salary</option>
             <option value="Other">Other</option>
@@ -54,17 +72,19 @@ function TransactionList({
           >
             <option value="newest">Newest First</option>
             <option value="oldest">Oldest First</option>
+            <option value="highest">Highest Amount</option>
+            <option value="lowest">Lowest Amount</option>
           </select>
         </div>
       </div>
 
-      {filteredTransactions.length === 0 ? (
+      {sortedTransactions.length === 0 ? (
         <p className="py-5 text-center text-gray-500">
           No transactions found.
         </p>
       ) : (
         <div className="flex flex-col gap-3">
-          {filteredTransactions.map((transaction) => (
+          {sortedTransactions.map((transaction) => (
             <TransactionItem
               key={transaction.id}
               transaction={transaction}
