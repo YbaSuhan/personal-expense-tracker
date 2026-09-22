@@ -20,21 +20,21 @@ function Summary({ transactions }) {
       <div className="rounded-xl bg-white p-6 shadow-sm">
         <p className="text-sm text-gray-500">Balance</p>
         <h2 className="mt-2 text-2xl font-bold">
-          Rs. {balance}
+          Rs. {balance.toLocaleString()}
         </h2>
       </div>
 
       <div className="rounded-xl bg-white p-6 shadow-sm">
         <p className="text-sm text-gray-500">Income</p>
         <h2 className="mt-2 text-2xl font-bold text-green-600">
-          Rs. {income}
+          Rs. {income.toLocaleString()}
         </h2>
       </div>
 
       <div className="rounded-xl bg-white p-6 shadow-sm">
         <p className="text-sm text-gray-500">Expenses</p>
         <h2 className="mt-2 text-2xl font-bold text-red-500">
-          Rs. {expenses}
+          Rs. {expenses.toLocaleString()}
         </h2>
       </div>
 

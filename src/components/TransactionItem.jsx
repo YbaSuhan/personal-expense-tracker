@@ -18,13 +18,14 @@ function TransactionItem({ transaction, deleteTransaction }) {
       <div className="flex items-center justify-between gap-4">
 
         <strong
-          className={
+            className={
             isIncome
-              ? "text-green-600"
-              : "text-red-500"
-          }
+            ? "text-green-600"
+            : "text-red-500"
+         }
         >
-          {isIncome ? "+" : "-"} Rs. {transaction.amount}
+            {isIncome ? "+" : "-"} Rs.{" "}
+            {Number(transaction.amount).toLocaleString()}
         </strong>
 
         <button
