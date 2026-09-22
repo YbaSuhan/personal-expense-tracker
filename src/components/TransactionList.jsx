@@ -21,12 +21,12 @@ function TransactionList({
   const sortedTransactions = [...filteredTransactions].sort(
     (a, b) => {
       if (sortOrder === "newest") {
-        return b.createdAt - a.createdAt;
-      }
+        return (b.createdAt ?? b.id) - (a.createdAt ?? a.id);
+     }
 
-      if (sortOrder === "oldest") {
-        return a.createdAt - b.createdAt;
-      }
+     if (sortOrder === "oldest") {
+        return (a.createdAt ?? a.id) - (b.createdAt ?? b.id);
+    }   
 
       if (sortOrder === "highest") {
         return Number(b.amount) - Number(a.amount);
