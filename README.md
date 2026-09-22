@@ -59,3 +59,50 @@ src/
 ├── App.css
 ├── index.css
 └── main.jsx
+
+## How to Run the Project
+
+### 1. Install dependencies
+
+```bash
+npm install
+```
+
+### 2. Start the development server
+
+```bash
+npm run dev
+```
+
+### 3. Open the application
+
+Open the localhost URL shown in the terminal.
+
+## Data Storage
+
+The application uses the browser's `localStorage` to save transaction data.
+
+This allows transactions to remain available even after refreshing the browser.
+
+## Screenshots
+
+### Dashboard
+
+![Dashboard](screenshots/summary.png)
+
+### Form Validation
+
+![Form Validation](screenshots/validation.png)
+
+### Transactions
+
+![Transactions](screenshots/transactions.png)
+
+## Known Limitations
+
+- The application stores data only in the browser's localStorage.
+- Data will not be shared between different browsers or devices.
+
+## Author
+
+Suhan Waiba Tamang
