@@ -59,6 +59,7 @@ src/
 ├── App.css
 ├── index.css
 └── main.jsx
+```
 
 ## How to Run the Project
 
