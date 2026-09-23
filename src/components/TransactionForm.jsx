@@ -28,84 +28,95 @@ function TransactionForm({ addTransaction }) {
   };
 
   return (
-    <section className="mb-8 rounded-xl bg-white p-6 shadow-sm">
-      <h2 className="mb-5 text-xl font-bold">
-        Add Transaction
-      </h2>
+    <section className="mb-8 rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
+      <div className="mb-6">
+        <h2 className="text-2xl font-bold text-gray-900">
+          Add Transaction
+        </h2>
+        <p className="mt-1 text-sm text-gray-500">
+          Record your income or expenses below.
+        </p>
+      </div>
 
-      <form onSubmit={handleSubmit} className="grid gap-4">
-        <div>
-          <label className="mb-1 block text-sm font-medium">
-            Type
-          </label>
+      <form onSubmit={handleSubmit} className="grid gap-5">
 
-          <select
-            value={type}
-            onChange={(e) => setType(e.target.value)}
-            className="w-full rounded-lg border border-gray-300 px-3 py-2 outline-none focus:border-green-500"
-          >
-            <option value="expense">Expense</option>
-            <option value="income">Income</option>
-          </select>
+        <div className="grid gap-5 md:grid-cols-2">
+          <div>
+            <label className="mb-2 block text-sm font-semibold text-gray-700">
+              Type
+            </label>
+
+            <select
+              value={type}
+              onChange={(e) => setType(e.target.value)}
+              className="w-full rounded-xl border border-gray-300 bg-gray-50 px-4 py-3 outline-none transition focus:border-green-500 focus:bg-white"
+            >
+              <option value="expense">Expense</option>
+              <option value="income">Income</option>
+            </select>
+          </div>
+
+          <div>
+            <label className="mb-2 block text-sm font-semibold text-gray-700">
+              Amount
+            </label>
+
+            <input
+              type="number"
+              min="1"
+              required
+              placeholder="Enter amount"
+              value={amount}
+              onChange={(e) => setAmount(e.target.value)}
+              className="w-full rounded-xl border border-gray-300 bg-gray-50 px-4 py-3 outline-none transition focus:border-green-500 focus:bg-white"
+            />
+          </div>
         </div>
 
-        <div>
-          <label className="mb-1 block text-sm font-medium">
-            Amount
-          </label>
+        <div className="grid gap-5 md:grid-cols-2">
+          <div>
+            <label className="mb-2 block text-sm font-semibold text-gray-700">
+              Category
+            </label>
 
-          <input
-            type="number"
-            min="1"
-            required
-            placeholder="Enter amount"
-            value={amount}
-            onChange={(e) => setAmount(e.target.value)}
-            className="w-full rounded-lg border border-gray-300 px-3 py-2 outline-none focus:border-green-500"
-          />
-        </div>
+            <select
+              value={category}
+              onChange={(e) => setCategory(e.target.value)}
+              className="w-full rounded-xl border border-gray-300 bg-gray-50 px-4 py-3 outline-none transition focus:border-green-500 focus:bg-white"
+            >
+              <option>Food</option>
+              <option>Transport</option>
+              <option>Shopping</option>
+              <option>Entertainment</option>
+              <option>Bills</option>
+              <option>Salary</option>
+              <option>Other</option>
+            </select>
+          </div>
 
-        <div>
-          <label className="mb-1 block text-sm font-medium">
-            Category
-          </label>
+          <div>
+            <label className="mb-2 block text-sm font-semibold text-gray-700">
+              Description
+            </label>
 
-          <select
-            value={category}
-            onChange={(e) => setCategory(e.target.value)}
-            className="w-full rounded-lg border border-gray-300 px-3 py-2 outline-none focus:border-green-500"
-          >
-            <option>Food</option>
-            <option>Transport</option>
-            <option>Shopping</option>
-            <option>Entertainment</option>
-            <option>Bills</option>
-            <option>Salary</option>
-            <option>Other</option>
-          </select>
-        </div>
-
-        <div>
-          <label className="mb-1 block text-sm font-medium">
-            Description
-          </label>
-
-          <input
-            type="text"
-            required
-            placeholder="Enter description"
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
-            className="w-full rounded-lg border border-gray-300 px-3 py-2 outline-none focus:border-green-500"
-          />
+            <input
+              type="text"
+              required
+              placeholder="Enter description"
+              value={description}
+              onChange={(e) => setDescription(e.target.value)}
+              className="w-full rounded-xl border border-gray-300 bg-gray-50 px-4 py-3 outline-none transition focus:border-green-500 focus:bg-white"
+            />
+          </div>
         </div>
 
         <button
           type="submit"
-          className="rounded-lg bg-green-600 px-4 py-3 font-medium text-white transition hover:bg-green-700"
+          className="mt-2 w-full rounded-xl bg-green-600 px-4 py-3.5 font-semibold text-white shadow-sm transition hover:bg-green-700 hover:shadow-md"
         >
-          Add Transaction
+          + Add Transaction
         </button>
+
       </form>
     </section>
   );
