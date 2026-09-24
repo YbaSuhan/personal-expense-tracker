@@ -12,18 +12,18 @@ function Header({ onProfileClick }) {
           PERSONAL FINANCE
         </div>
 
-        <div className="flex items-center justify-between gap-6">
+        <div className="flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
           <div className="flex items-center gap-4">
             <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-white/15 text-3xl shadow-sm backdrop-blur-sm">
               💰
             </div>
 
             <div>
-              <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">
+              <h1 className="text-2xl font-bold tracking-tight sm:text-4xl">
                 Expense Tracker
               </h1>
 
-              <p className="mt-1 text-sm text-green-50 sm:text-base">
+              <p className="mt-1 text-sm text-green-50">
                 Manage your income and expenses easily
               </p>
             </div>
