@@ -3,6 +3,7 @@ import Header from "./components/Header";
 import Summary from "./components/Summary";
 import TransactionForm from "./components/TransactionForm";
 import TransactionList from "./components/TransactionList";
+import Budget from "./components/Budget";
 import "./App.css";
 
 function App() {
@@ -46,8 +47,10 @@ function App() {
             onProfileClick={() => setShowProfile(true)}
           />
 
-          <main className="mx-auto w-[90%] max-w-6xl py-8">
+         <main className="min-h-screen bg-gray-50 px-6 py-10">
             <Summary transactions={transactions} />
+
+            <Budget transactions={transactions} />
 
             <TransactionForm
               addTransaction={addTransaction}

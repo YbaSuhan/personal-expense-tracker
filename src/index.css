@@ -5,3 +5,13 @@ body {
   background: #f5f7f6;
   font-family: Arial, sans-serif;
 }
+
+input[type="number"] {
+  appearance: textfield;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}

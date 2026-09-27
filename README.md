@@ -21,6 +21,8 @@ Users can add transactions, view their balance, filter transactions by category,
 - Save transactions using localStorage
 - Data remains available after refreshing the page
 - Responsive design using Tailwind CSS
+- Set a spending limit for expenses
+- Show when the expense limit is exceeded
 
 ## Technologies Used
 
@@ -49,6 +51,7 @@ This project uses the following React concepts:
 ```text
 src/
 ├── components/
+│   ├── Budget.jsx
 │   ├── Header.jsx
 │   ├── Summary.jsx
 │   ├── TransactionForm.jsx
@@ -77,7 +80,7 @@ npm run dev
 
 ### 3. Open the application
 
-Open the localhost URL shown in the terminal.
+ http://localhost:5173/
 
 ## Data Storage
 
